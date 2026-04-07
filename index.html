@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMF Gym & Supplements</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #757575;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav {
+            background: #232f3e;
+            color: white;
+            text-align: center;
+            padding: 5px;
+        }
+
+        nav h1 {
+            margin: 2px;
+            font-size: 16px;
+        }
+
+        .main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 90px;
+        }
+
+        .logo img {
+            width: 580px;
+            max-width: 85%;
+        }
+
+        .side-btn {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .side-btn:first-child {
+            margin-right: 20px;
+        }
+
+        .side-btn:last-child {
+            margin-left: 20px;
+        }
+
+        .btn {
+            background: #232f3e;
+            padding: 10px 18px;
+            border-radius: 8px;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            text-align: center;
+            min-width: 130px;
+        }
+
+        .btn:hover {
+            background: #ff9900;
+        }
+
+        .Supplements {
+            text-align: center;
+            color: white;
+            font-size: 28px;
+            font-weight: 900;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .Supplements:hover {
+            color: #ff9900;
+            transform: scale(1.05);
+        }
+
+        .social-bottom {
+            background: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            padding: 12px;
+        }
+
+        .social-bottom a {
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .social-bottom img {
+            height: 32px;
+            display: block;
+            margin: auto;
+            transition: 0.3s;
+        }
+
+        .social-bottom img:hover {
+            transform: scale(1.2);
+        }
+
+        .contact-btn {
+            background: #ff9900;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .contact-btn:hover {
+            background: white;
+        }
+
+        @media(max-width: 768px) {
+            .content {
+                flex-direction: column;
+                gap: 25px;
+            }
+
+            .side-btn {
+                flex-direction: row;
+            }
+
+            .logo img {
+                max-width: 90%;
+            }
+
+            .Supplements {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <h1>SMF GYM & SUPPLEMENTS</h1>
+        <h1>SRI BABU POWER LIFTING ACADEMY</h1>
+    </nav>
+
+    <div class="main">
+        <div>
+            <div class="content">
+                <div class="side-btn">
+                    <div class="btn" onclick="openWorkout()">WORKOUT</div>
+                </div>
+
+                <div class="logo">
+                    <img src="img/smf logo (1).png" alt="SMF Logo">
+                </div>
+
+                <div class="side-btn">
+                    <div class="btn" onclick="openDiet()">SAMPLE DIET</div>
+                </div>
+            </div>
+
+            <div class="Supplements" onclick="Products()">SUPPLEMENTS</div>
+        </div>
+    </div>
+
+    <div class="social-bottom">
+        <a href="#">
+            <img src="img/Social=Instagram,Style=Original (1).svg" alt="Instagram">
+            <span>INSTAGRAM</span>
+        </a>
+        <a href="#">
+            <img src="img/Social=Facebook,Style=Original (1).svg" alt="Facebook">
+            <span>FACEBOOK</span>
+        </a>
+        <a href="#">
+            <img src="img/Social=WhatsApp,Style=Original (1).svg" alt="WhatsApp">
+            <span>WHATSAPP</span>
+        </a>
+        <a href="#" class="contact-btn">CONTACT</a>
+    </div>
+
+    <script>
+        function openDiet() { window.location.href = "diet.html"; }
+        function openWorkout() { window.location.href = "workout.html"; }
+        function Products() { window.location.href = "products.html"; }
+    </script>
+
+</body>
+
+</html>
