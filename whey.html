@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whey</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background:#808080 ;
+            color: #111;
+        }
+
+        h2 {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 28px;
+            color: #111;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .product-card {
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        .product-card h4 {
+            font-size: 18px;
+            margin: 10px 0 5px;
+            color: #111;
+        }
+
+        .price {
+            color: #B12704;
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .description {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        button {
+            margin: 5px 0;
+            background: #f0c14b;
+            color: #111;
+            border: 1px solid #a88734;
+            padding: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 90%;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: #e2b33c;
+        }
+
+        .cart-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #f0c14b;
+            color: #111;
+            padding: 14px;
+            border-radius: 50%;
+            font-size: 20px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+
+        .cart-box {
+            position: fixed;
+            bottom: 80px;
+            right: 15px;
+            width: 280px;
+            background: #fff;
+            color: #111;
+            padding: 15px;
+            border-radius: 10px;
+            display: none;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            font-size: 14px;
+        }
+
+        .cart-box h3 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+
+        .cart-box button {
+            background: #f0c14b;
+            border: 1px solid #a88734;
+            color: #111;
+            width: 100%;
+            padding: 8px;
+            margin-top: 10px;
+        }
+
+        .review-section {
+            width: 90%;
+            max-width: 400px;
+            margin: 30px auto;
+            background: #fff;
+            color: #111;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 14px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .review-section h4 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+            font-size: 18px;
+        }
+
+        .review-section input,
+        .review-section textarea,
+        .review-section select {
+            width: 95%;
+            padding: 8px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .review-section textarea {
+            height: 80px;
+        }
+
+        .review-section button {
+            background: #f0c14b;
+            border: 1px solid #a88734;
+            color: #111;
+            width: 100%;
+            padding: 8px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .review-section button:hover {
+            background: #e2b33c;
+        }
+
+        .review-item {
+            background: #f5f5f5;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="index.html" class="back-btn">⬅</a>
+        <h2>SMF SUPPLEMENTS</h2>
+    </div>
+
+    <h2>Whey Products</h2>
+
+    <div class="grid">
+        <!-- 20 Product Cards -->
+        <!-- You can change image src, name, price, description -->
+        <div class="product-card"><img src="img/whey/61aknbuYJsL._AC_UL480_FMwebp_QL65_.webp" alt="Product 1">
+            <h4>Pre 1</h4>
+            <p class="price">₹1050</p>
+            <p class="description">Description for Whey</p><button
+                onclick="orderNow('Pre 1',1050)">Order</button><button onclick="addToCart('Pre 1',1050)">Cart</button>
+        </div>
+        <div class="product-card"><img src="img/whey/61aknbuYJsL._AC_UL480_FMwebp_QL65_.webp" alt="Product 2">
+            <h4>Pre 2</h4>
+            <p class="price">₹1100</p>
+            <p class="description">Description for Whey</p><button
+                onclick="orderNow('Pre 2',1100)">Order</button><button onclick="addToCart('Pre 2',1100)">Cart</button>
+        </div>
+        <div class="product-card"><img src="img/whey/61aknbuYJsL._AC_UL480_FMwebp_QL65_.webp" alt="Product 3">
+            <h4>Pre 3</h4>
+            <p class="price">₹1150</p>
+            <p class="description">Description for Whey</p><button
+                onclick="orderNow('Pre 3',1150)">Order</button><button onclick="addToCart('Pre 3',1150)">Cart</button>
+        </div>
+        <div class="product-card"><img src="img/whey/61aknbuYJsL._AC_UL480_FMwebp_QL65_.webp" alt="Product 4">
+            <h4>Pre 4</h4>
+            <p class="price">₹1200</p>
+            <p class="description">Description forWhey</p><button onclick="orderNow('Pre 4',1200)">Order</button><button
+                onclick="addToCart('Pre 4',1200)">Cart</button>
+        </div>
+        <div class="product-card"><img src="img/whey/61ENBM9MPoL._AC_UL480_FMwebp_QL65_.webp" alt="Product 5">
+            <h4>Pre 5</h4>
+            <p class="price">₹1250</p>
+            <p class="description">Description for Whey</p><button
+                onclick="orderNow('Pre 5',1250)">Order</button><button onclick="addToCart('Pre 5',1250)">Cart</button>
+        </div>
+        <div class="product-card"><img src="img/whey/61ENBM9MPoL._AC_UL480_FMwebp_QL65_.webp" alt="Product 6">
+            <h4>Pre 6</h4>
+            <p class="price">₹1300</p>
+            <p class="description">Description for Whey</p><button
+                onclick="orderNow('Pre 6',1300)">Order</button><button onclick="addToCart('Pre 6',1300)">Cart</button>
+        </div>
+        <div class="product-card"><img src="img/whey/710yROu43XL._AC_SX644_CB1169409_QL70_.jpg" alt="Product 7">
+            <h4>Pre 7</h4>
+            <p class="price">₹1350</p>
+            <p class="description">Description for Whey</p><button
+                onclick="orderNow('Pre 7',1350)">Order</button><button onclick="addToCart('Pre 7',1350)">Cart</button>
+        </div>
+        <div class="product-card"><img src="img/whey/71aaVOEsHLL._AC_UL480_FMwebp_QL65_.webp" alt="Product 8">
+            <h4>Pre 8</h4>
+            <p class="price">₹1400</p>
+            <p class="description">Description for Whey</p><button
+                onclick="orderNow('Pre 8',1400)">Order</button><button onclick="addToCart('Pre 8',1400)">Cart</button>
+        </div>
+        <div class="product-card"><img src="img/whey/71aaVOEsHLL._AC_UL480_FMwebp_QL65_.webp" alt="Product 9">
+            <h4>Pre 9</h4>
+            <p class="price">₹1450</p>
+            <p class="description">Description for Whey</p><button
+                onclick="orderNow('Pre 9',1450)">Order</button><button onclick="addToCart('Pre 9',1450)">Cart</button>
+        </div>
+        <div class="product-card"><img src="img/whey/71aaVOEsHLL._AC_UL480_FMwebp_QL65_.webp" alt="Product 10">
+            <h4>Pre 10</h4>
+            <p class="price">₹1500</p>
+            <p class="description">Description for Whey</p><button
+                onclick="orderNow('Pre 10',1500)">Order</button><button onclick="addToCart('Pre 10',1500)">Cart</button>
+        </div>
+
+    </div>
+
+    <!-- CART -->
+    <div class="cart-btn" onclick="toggleCart()">🛒</div>
+    <div class="cart-box" id="cartBox">
+        <h3>Cart</h3>
+        <div id="cartItems"></div>
+        <h4>Total: ₹<span id="total">0</span></h4>
+        <button onclick="sendCartWhatsApp()">Order Cart</button>
+    </div>
+
+    <!-- REVIEW -->
+    <div class="review-section">
+        <h4>Reviews</h4>
+        <input id="reviewName" placeholder="Name">
+        <select id="reviewProductSelect">
+            <!-- All 20 products -->
+            <option value="Pre 1">Pre 1</option>
+            <option value="Pre 2">Pre 2</option>
+            <option value="Pre 3">Pre 3</option>
+            <option value="Pre 4">Pre 4</option>
+            <option value="Pre 5">Pre 5</option>
+            <option value="Pre 6">Pre 6</option>
+            <option value="Pre 7">Pre 7</option>
+            <option value="Pre 8">Pre 8</option>
+            <option value="Pre 9">Pre 9</option>
+            <option value="Pre 10">Pre 10</option>
+            <option value="Pre 11">Pre 11</option>
+            <option value="Pre 12">Pre 12</option>
+            <option value="Pre 13">Pre 13</option>
+            <option value="Pre 14">Pre 14</option>
+            <option value="Pre 15">Pre 15</option>
+            <option value="Pre 16">Pre 16</option>
+            <option value="Pre 17">Pre 17</option>
+            <option value="Pre 18">Pre 18</option>
+            <option value="Pre 19">Pre 19</option>
+            <option value="Pre 20">Pre 20</option>
+        </select>
+        <hr>
+        <center>
+            <select id="reviewRating">
+                <option value="5">⭐⭐⭐⭐⭐</option>
+                <option value="4">⭐⭐⭐⭐</option>
+                <option value="3">⭐⭐⭐</option>
+                <option value="2">⭐⭐</option>
+                <option value="1">⭐</option>
+            </select>
+            <textarea id="reviewComment" placeholder="Write review"></textarea>
+            <button onclick="submitReview()">Submit</button>
+            <div id="reviewList"></div>
+    </div>
+    <a href="products.html" class="backk-btn"><button>Back</button></a>
+
+    <script>
+        const whatsappNumber = "917339563621";
+        let cart = [];
+        function orderNow(name, price) { window.location.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Order:\n' + name + '\nPrice: ₹' + price)}`; }
+        function addToCart(name, price) { cart.push({ name, price, total: price }); renderCart(); }
+        function renderCart() { let total = 0; let html = ""; cart.forEach((c, i) => { total += c.total; html += `${c.name} ₹${c.total} <button onclick="removeItem(${i})">X</button><br>`; }); document.getElementById("cartItems").innerHTML = html; document.getElementById("total").innerText = total; }
+        function removeItem(i) { cart.splice(i, 1); renderCart(); }
+        function toggleCart() { let box = document.getElementById("cartBox"); box.style.display = box.style.display === 'block' ? 'none' : 'block'; }
+        function sendCartWhatsApp() { if (cart.length === 0) { alert("Cart empty"); return; } let msg = "Order:\n"; let total = 0; cart.forEach(c => { msg += `${c.name} ₹${c.total}\n`; total += c.total; }); msg += `Total: ₹${total}`; window.location.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`; }
+        function submitReview() { const name = document.getElementById("reviewName").value; const comment = document.getElementById("reviewComment").value; const rating = document.getElementById("reviewRating").value; const product = document.getElementById("reviewProductSelect").value; if (!name || !comment) { alert("Fill all fields"); return; } let div = document.createElement("div"); div.className = "review-item"; div.innerHTML = `<b>${name} ${"⭐".repeat(rating)} (${product})</b><p>${comment}</p>`; document.getElementById("reviewList").appendChild(div); document.getElementById("reviewName").value = ""; document.getElementById("reviewComment").value = ""; }
+    </script>
+
+</body>
+
+</html>
