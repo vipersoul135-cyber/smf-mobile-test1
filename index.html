@@ -6,76 +6,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMF Gym & Supplements</title>
     <style>
+        /* GENERAL STYLES */
         body {
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #757575;
-            height: 100vh;
-            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: #232f3e;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 10px;
+            position: relative;
+        }
+
+        nav .logo-text {
             display: flex;
             flex-direction: column;
         }
 
-        nav {
-            background: #232f3e;
-            color: white;
-            text-align: center;
-            padding: 5px;
-        }
-
-        nav h1 {
-            margin: 2px;
+        nav .logo-text h1 {
+            margin: 0;
             font-size: 16px;
         }
 
+        /* MENU */
+        .menu-btn {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        .menu {
+            display: flex;
+            gap: 10px;
+        }
+
+        .menu div {
+            background: #232f3e;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .menu div:hover {
+            background: #ff9900;
+        }
+
+        /* MAIN CONTENT */
         .main {
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-        }
-
-        .content {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 90px;
+            flex-direction: column;
+            padding: 20px;
         }
 
         .logo img {
-            width: 580px;
+            width: auto;
+            max-width: 580px;
             max-width: 85%;
-        }
-
-        .side-btn {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .side-btn:first-child {
-            margin-right: 20px;
-        }
-
-        .side-btn:last-child {
-            margin-left: 20px;
-        }
-
-        .btn {
-            background: #232f3e;
-            padding: 10px 18px;
-            border-radius: 8px;
-            color: white;
-            font-size: 14px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-            text-align: center;
-            min-width: 130px;
-        }
-
-        .btn:hover {
-            background: #ff9900;
+            height: auto;
         }
 
         .Supplements {
@@ -85,6 +86,7 @@
             font-weight: 900;
             cursor: pointer;
             margin-top: 20px;
+            transition: 0.3s;
         }
 
         .Supplements:hover {
@@ -92,6 +94,7 @@
             transform: scale(1.05);
         }
 
+        /* SOCIAL FOOTER */
         .social-bottom {
             background: #111;
             display: flex;
@@ -99,6 +102,7 @@
             align-items: center;
             gap: 25px;
             padding: 12px;
+            flex-wrap: wrap;
         }
 
         .social-bottom a {
@@ -132,14 +136,40 @@
             background: white;
         }
 
-        @media(max-width: 768px) {
-            .content {
-                flex-direction: column;
-                gap: 25px;
+        /* MOBILE RESPONSIVE */
+        @media(max-width:768px) {
+            .menu-btn {
+                display: block;
             }
 
-            .side-btn {
-                flex-direction: row;
+            .menu {
+                display: none;
+                flex-direction: column;
+                width: 150px;
+                position: absolute;
+                top: 40px;
+                right: 10px;
+                background: #232f3e;
+                border-radius: 8px;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+
+            .menu.active {
+                display: flex;
+            }
+
+            .menu div {
+                padding: 12px 10px;
+                border-bottom: 1px solid #111;
+            }
+
+            .menu div:last-child {
+                border-bottom: none;
+            }
+
+            .main {
+                padding: 10px;
             }
 
             .logo img {
@@ -156,43 +186,29 @@
 <body>
 
     <nav>
-        <h1>SMF GYM & SUPPLEMENTS</h1>
-        <h1>SRI BABU POWER LIFTING ACADEMY</h1>
+        <div class="logo-text">
+            <h1>SMF GYM & SUPPLEMENTS</h1>
+            <h1>SRI BABU POWER LIFTING ACADEMY</h1>
+        </div>
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+        <div class="menu" id="menu">
+            <div onclick="openWorkout()">WORKOUT</div>
+            <div onclick="openDiet()">SAMPLE DIET</div>
+            <div onclick="Products()">SUPPLEMENTS</div>
+        </div>
     </nav>
 
     <div class="main">
-        <div>
-            <div class="content">
-                <div class="side-btn">
-                    <div class="btn" onclick="openWorkout()">WORKOUT</div>
-                </div>
-
-                <div class="logo">
-                    <img src="img/smf logo (1).png" alt="SMF Logo">
-                </div>
-
-                <div class="side-btn">
-                    <div class="btn" onclick="openDiet()">SAMPLE DIET</div>
-                </div>
-            </div>
-
-            <div class="Supplements" onclick="Products()">SUPPLEMENTS</div>
+        <div class="logo">
+            <img src="img/smf logo (1).png" alt="SMF Logo">
         </div>
+        <div class="Supplements" onclick="Products()">SUPPLEMENTS</div>
     </div>
 
     <div class="social-bottom">
-        <a href="#">
-            <img src="img/Social=Instagram,Style=Original (1).svg" alt="Instagram">
-            <span>INSTAGRAM</span>
-        </a>
-        <a href="#">
-            <img src="img/Social=Facebook,Style=Original (1).svg" alt="Facebook">
-            <span>FACEBOOK</span>
-        </a>
-        <a href="#">
-            <img src="img/Social=WhatsApp,Style=Original (1).svg" alt="WhatsApp">
-            <span>WHATSAPP</span>
-        </a>
+        <a href="#"><img src="img/Social=Instagram,Style=Original (1).svg" alt="Instagram"><span>INSTAGRAM</span></a>
+        <a href="#"><img src="img/Social=Facebook,Style=Original (1).svg" alt="Facebook"><span>FACEBOOK</span></a>
+        <a href="#"><img src="img/Social=WhatsApp,Style=Original (1).svg" alt="WhatsApp"><span>WHATSAPP</span></a>
         <a href="#" class="contact-btn">CONTACT</a>
     </div>
 
@@ -200,6 +216,10 @@
         function openDiet() { window.location.href = "diet.html"; }
         function openWorkout() { window.location.href = "workout.html"; }
         function Products() { window.location.href = "products.html"; }
+
+        function toggleMenu() {
+            document.getElementById("menu").classList.toggle("active");
+        }
     </script>
 
 </body>
