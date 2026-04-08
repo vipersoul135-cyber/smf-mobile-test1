@@ -297,6 +297,336 @@
         <div class="menu" id="menu">
             <div onclick="openWorkout()">WORKOUT</div>
             <div onclick="openDiet()">SAMPLE DIET</div>
+
+        </div>
+    </nav>
+
+    <div class="main">
+        <div class="logo-container">
+            <div class="btn-left" onclick="openWorkout()">WORKOUT</div>
+            <img class="logo" src="img/smf logo (1).png" alt="SMF Logo">
+            <div class="btn-right" onclick="openDiet()">SAMPLE DIET</div>
+        </div>
+        <div class="Supplements" onclick="Products()">SUPPLEMENTS</div>
+    </div>
+
+    <div class="social-bottom">
+        <a href="#"><img src="img/Social=Instagram,Style=Original (1).svg" alt="Instagram"><span>INSTAGRAM</span></a>
+        <a href="#"><img src="img/Social=Facebook,Style=Original (1).svg" alt="Facebook"><span>FACEBOOK</span></a>
+        <a href="#"><img src="img/Social=WhatsApp,Style=Original (1).svg" alt="WhatsApp"><span>WHATSAPP</span></a>
+        <a href="#" class="contact-btn">CONTACT</a>
+    </div>
+
+    <script>
+        function openDiet() { window.location.href = "diet.html"; }
+        function openWorkout() { window.location.href = "workout.html"; }
+        function Products() { window.location.href = "products.html"; }
+        function toggleMenu() {
+            document.getElementById("menu").classList.toggle("active");
+        }
+    </script>
+
+</body>
+
+</html><!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMF Gym & Supplements</title>
+    <style>
+        /* ================================ */
+        /* GENERAL STYLES (SHARED)          */
+        /* ================================ */
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            /* Desktop remains strictly no-scroll */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #757575;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            /* fallback */
+            min-height: 100dvh;
+            /* dynamic height for mobile menus */
+            align-items: center;
+        }
+
+        nav {
+            background: #232f3e;
+            color: white;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 20px;
+            position: relative;
+            flex-shrink: 0;
+            /* Important: prevents nav from shrinking on small screens */
+        }
+
+        nav .logo-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        nav .logo-text h1 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .logo img {
+            width: auto;
+            max-width: 200px;
+            max-height: 40vh;
+            /* Scale down on short screens so it fits single page */
+            height: auto;
+            z-index: 1;
+        }
+
+        .Supplements {
+            text-align: center;
+            background: #232f3e;
+            color: white;
+            font-size: 28px;
+            font-weight: 900;
+            cursor: pointer;
+            margin-top: 20px;
+            padding: 12px 20px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .Supplements:hover {
+            background: #ff9900;
+            color: black;
+            transform: scale(1.05);
+        }
+
+        /* SOCIAL FOOTER */
+        .social-bottom {
+            background: #111;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            padding: 12px 12px 45px 12px;
+            /* Large padding at bottom to completely clear mobile UI */
+            flex-wrap: wrap;
+            flex-shrink: 0;
+            /* Important: prevents footer from being squashed and hidden */
+        }
+
+        .social-bottom a {
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .social-bottom img {
+            height: 32px;
+            transition: 0.3s;
+        }
+
+        .social-bottom img:hover {
+            transform: scale(1.2);
+        }
+
+        .contact-btn {
+            background: #ff9900;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: bold;
+            color: black;
+            text-decoration: none;
+        }
+
+        .contact-btn:hover {
+            background: white;
+            color: black;
+        }
+
+        /* ================================ */
+        /* WINDOWS / DESKTOP VIEW           */
+        /* ================================ */
+        @media(min-width: 769px) {
+            .menu-btn {
+                display: none;
+            }
+
+            .menu {
+                display: none;
+            }
+
+            .logo-container {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 50px;
+                /* Space between buttons and logo */
+            }
+
+            .btn-left,
+            .btn-right {
+                padding: 12px 20px;
+                font-size: 16px;
+                font-weight: bold;
+                border-radius: 5px;
+                background: #232f3e;
+                color: white;
+                cursor: pointer;
+                transition: 0.3s;
+                white-space: nowrap;
+            }
+
+            .btn-left:hover,
+            .btn-right:hover {
+                background: #ff9900;
+                color: black;
+                transform: scale(1.05);
+            }
+        }
+
+        /* ================================ */
+        /* MOBILE VIEW                      */
+        /* ================================ */
+        @media(max-width: 768px) {
+
+            html,
+            body {
+                overflow-y: auto;
+                /* Re-enable scrolling specifically for mobile only */
+            }
+
+            /* Create a gap between title and menu bar */
+            nav .logo-text {
+                padding-right: 40px;
+                padding-left: 10px;
+            }
+
+            nav .logo-text h1 {
+                font-size: 15px;
+            }
+
+            /* Show Hamburger Menu */
+            .menu-btn {
+                display: block;
+                font-size: 28px;
+                cursor: pointer;
+                position: absolute;
+                right: 20px;
+            }
+
+            /* Mobile Dropdown Menu */
+            .menu {
+                display: none;
+                flex-direction: column;
+                gap: 15px;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                background: #232f3e;
+                border-radius: 8px;
+                overflow: hidden;
+                z-index: 10;
+            }
+
+            .menu.active {
+                display: flex;
+            }
+
+            .menu div {
+                background: #232f3e;
+                color: white;
+                padding: 10px 15px;
+                border-radius: 5px;
+                font-weight: bold;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+
+            .menu div:hover {
+                background: #ff9900;
+                color: black;
+            }
+
+            /* Hide Desktop Buttons */
+            .btn-left,
+            .btn-right {
+                display: none;
+            }
+
+            /* Mobile Logo Container */
+            .logo-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+            }
+
+            .logo img {
+                width: auto;
+                max-width: 65%;
+                /* Removed max-height so the large logo naturally forces the page into a scrollable layout */
+                object-fit: contain;
+                margin: 50px 0;
+                /* Add extra spacing to ensure a pleasant scrolling motion */
+            }
+
+            .Supplements {
+                font-size: 18px;
+                padding: 10px 24px;
+                width: 80%;
+                max-width: 280px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo-text">
+            <h1>SMF GYM & SUPPLEMENTS</h1>
+            <h1>SRI BABU POWER LIFTING ACADEMY</h1>
+            <data value="Dropdown"></data>
+        </div>
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+        <div class="menu" id="menu">
+            <div onclick="openWorkout()">WORKOUT</div>
+            <div onclick="openDiet()">SAMPLE DIET</div>
             <div onclick="Products()">SUPPLEMENTS</div>
         </div>
     </nav>
