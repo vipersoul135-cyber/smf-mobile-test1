@@ -301,13 +301,13 @@
         <div class="menu" id="menu">
             <div onclick="openWorkout()">WORKOUT</div>
             <div onclick="openDiet()">SAMPLE DIET</div>
-            <div onclick="window.location.href='#'">CONTACT</div>
+            <div onclick="window.location.href='contact.html'">CONTACT</div>
         </div>
     </nav>
 
     <div class="main">
         <div class="logo-container">
-            <div class="btn-left" onclick="openWorkout()">WORKOUT</div>
+            <div class="btn-left" onclick="openWorkout()" href="sample_workout_plan.pdf">WORKOUT</div>
             <img class="logo" src="img/smf logo (1).png" alt="SMF Logo">
             <div class="btn-right" onclick="openDiet()">SAMPLE DIET</div>
         </div>
@@ -318,11 +318,12 @@
         <a href="#"><img src="img/Social=Instagram,Style=Original (1).svg" alt="Instagram"><span>INSTAGRAM</span></a>
         <a href="#"><img src="img/Social=Facebook,Style=Original (1).svg" alt="Facebook"><span>FACEBOOK</span></a>
         <a href="#"><img src="img/Social=WhatsApp,Style=Original (1).svg" alt="WhatsApp"><span>WHATSAPP</span></a>
+        <a href="contact.html" class="contact-btn">CONTACT</a>
     </div>
 
     <script>
-        function openDiet() { window.location.href = "diet.html"; }
-        function openWorkout() { window.location.href = "workout.html"; }
+        function openDiet() { window.location.href = ""; }
+        function openWorkout() { window.open("sample_workout_plan.pdf", "_blank"); }
         function Products() { window.location.href = "products.html"; }
         function toggleMenu() {
             document.getElementById("menu").classList.toggle("active");
